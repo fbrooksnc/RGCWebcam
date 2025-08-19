@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Roaring Gap Club Webcam</title>
-  <meta http-equiv="refresh" content="110">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roaring Gap Webcam</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
       background-color: black;
+      overflow: hidden;
+    }
+    #videoContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
     iframe {
       border: none;
@@ -17,8 +23,23 @@
       height: 100%;
     }
   </style>
+  <script>
+    // Auto-refresh every 110 seconds
+    setTimeout(() => {
+      location.reload();
+    }, 110000);
+
+    // Auto-scroll to video on load
+    window.onload = function() {
+      setTimeout(() => {
+        window.scrollTo({ top: 150, behavior: 'smooth' }); // Adjust as needed
+      }, 500); // Delay to allow Echo Show banner to load
+    };
+  </script>
 </head>
 <body>
-  <iframe src="https://raysweather.com/views/streams/Roaring%20Gap%20Club%20Webcam" allowfullscreen></iframe>
+  <div id="videoContainer">
+    <iframe src="https://www.raysweather.com/roaringgapcam.html" allowfullscreen></iframe>
+  </div>
 </body>
 </html>
